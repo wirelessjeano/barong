@@ -23,6 +23,5 @@ chdir APP_ROOT do
   system! 'bin/rake yarn:install assets:precompile'
 
   puts "\n== Preparing database =="
-  system! 'cp config/database.yml.example config/database.yml'
   system! 'bin/rails db:create db:migrate'
 end
