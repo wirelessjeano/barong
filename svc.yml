@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: barong-lb
+spec:
+  selector:
+    app: barong
+  ports:
+  - protocol: TCP
+    port: 8002
+    targetPort: 8002
+  type: LoadBalancer

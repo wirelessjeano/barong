@@ -30,3 +30,5 @@
 /config/database.yml
 
 .DS_Store
+
+.bash_history

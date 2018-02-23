@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta2 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: barong-deployment
+  labels:
+    app: barong
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: barong
+  template:
+    metadata:
+      labels:
+        app: barong
+    spec:
+      containers:
+      - name: barong
+        image: wirelessjeano/barong:0.2.3
+        env:
+        - name: PORT
+          value: '8002'
+        - name: RAILS_ENV
+          value: 'development'
+        - name: DATABASE_HOST
+          value: 'dev-mysql'
+        - name: DATABASE_USER
+          value: 'root'
+        - name: DATABASE_PASSWORD
+          value: 'Mpi1Se95fK'
+        - name: TWILIO_ACCOUNT_SID
+          value: 'AC766817a854c3ad5db6f361c086edd5e1'
+        - name: TWILIO_AUTH_TOKEN
+          value: '2c9c4044fd9dd3ac284ea3112f9e3053'
+        - name: TWILIO_PHONE_NUMBER
+          value: '+12183894275'
+        ports:
+        - containerPort: 8002

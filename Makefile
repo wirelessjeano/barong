@@ -1,7 +1,7 @@
 VERSION ?= $(shell cat VERSION)
 ENV     ?= staging
 SERVICE := barong
-IMAGE   := rubykube/$(SERVICE):$(VERSION)
+IMAGE   := wirelessjeano/$(SERVICE):$(VERSION)
 CURRENT_CONTEXT := $(shell kubectl config current-context)
 
 .PHONY: default build push run ci deploy
@@ -14,7 +14,7 @@ build:
 	@docker build -t $(IMAGE) .
 
 push: build
-	gcloud docker -- push $(IMAGE)
+	@docker push $(IMAGE)
 
 run:
 	@echo '> Starting "$(SERVICE)" container...'
