@@ -11,16 +11,16 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="field col-12 justify-content-center">
+    <div class="field col-12 ">
       <label>Document upload</label>
-      <%= form.file_field :upload, id: :document_upload, class: 'custom-file-input' %>
-      <%= form.label :upload, "Choose the file to upload" %>
-    </div></br>
+      <%= form.file_field :upload, id: :document_upload, class: 'dropify', 'data-default-file': document.upload.present? ? image_url(document.upload.url) : false %>
+      </br>
+    </div>
   </div>
   <div class="row">
     <div class="field col-6">
       <%= form.label :doc_type, 'Document type' %>
-      <%= form.select(:doc_type, ['Passport', 'Identity card', 'Driver license', 'Utility bill'], {id: :document_doc_type}, {class: 'form-control underlined'}) %>
+      <%= form.select(:doc_type, ['Passport', 'Identity card', 'Driver license'], {id: :document_doc_type}, {class: 'form-control underlined'}) %>
     </div>
 
     <div class="field form-group">

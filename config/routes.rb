@@ -3,16 +3,17 @@
 Rails.application.routes.draw do
 
   use_doorkeeper
+  mount API::Base, at: '/api'
 
   devise_for :accounts
   root to: 'index#index', as: :index
 
-  post  'phones/verification', to: 'phones#verify'
-  get   'security',     to: 'security#enable'
+  post  'phones/verification',  to: 'phones#verify'
+  get   'security',             to: 'security#enable'
 
-  resources :phones
-  resources :profiles
-  resources :documents
+  resources :phones,    only: [:new, :create]
+  resources :profiles,  only: [:new, :create]
+  resources :documents, only: [:new, :create]
 
   namespace :admin do
     get '/', to: 'dashboard#index', as: :dashboard
@@ -21,9 +22,5 @@ Rails.application.routes.draw do
     resources :profiles do
       put :change_state,    on: :member
     end
-  end
-
-  namespace :api do
-    resources :account, to: 'accounts#show'
   end
 end
