@@ -1,0 +1,55 @@
+{
+  "manifest": {
+    "name": "dropify",
+    "description": "Override your input files with style.",
+    "version": "0.2.2",
+    "homepage": "https://github.com/JeremyFagis/dropify",
+    "author": {
+      "name": "Jeremy FAGIS",
+      "email": "jeremy@fagis.fr",
+      "url": "http://fagis.fr"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/JeremyFagis/dropify"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/JeremyFagis/dropify/issues"
+    },
+    "main": "dist/js/dropify.js",
+    "dependencies": {
+      "jquery": "*"
+    },
+    "devDependencies": {
+      "gulp": "^3.9.0",
+      "gulp-autoprefixer": "^3.1.0",
+      "gulp-header": "^1.7.1",
+      "gulp-load-plugins": "^1.2.0",
+      "gulp-minify-css": "1.2.4",
+      "gulp-plumber": "^1.0.1",
+      "gulp-sass": "^3.1.0",
+      "gulp-uglify": "^2.1.0",
+      "gulp-util": "^3.0.7",
+      "gulp-umd": "^0.2.0",
+      "gulp-wrap-js": "^0.4.1",
+      "gulp-rename": "^1.2.2",
+      "minimist": "^1.2.0",
+      "gulp-if": "^2.0.0"
+    },
+    "_registry": "npm",
+    "_loc": "/home/app/.cache/yarn/v1/npm-dropify-0.2.2-554ebd1da7b6dc2037855fad737dd83128f3f556/package.json",
+    "readmeFilename": "README.md",
+    "readme": "![Dropify](src/images/cover.jpg)\n\nDropify\n=========\n\nOverride your input files with style.\n\nDemo here : [http://jeremyfagis.github.io/dropify](http://jeremyfagis.github.io/dropify/)\n\n\n## Dependency\n\n[jQuery](https://github.com/jquery/jquery) is required to do the magic.\n\n\n## Installation\n\nClone the project in your workspace\n\n\t$ git clone git@github.com:JeremyFagis/dropify.git\n\t$ cd dropify\n\nDownload packages\n\n\t$ npm install\n\nCompile assets\n\n\t$ gulp build\n\n\n## Compilation\n\n\t# All compilations and watch. You will have minified and not minified files.\n\t$ gulp\n\n\t# Dev compilation (watch & no-minification)\n\t$ gulp --dev\n\n    # Prod compilation, you will have minified and not minified files\n    $ gulp build\n\n\t# Prod compilation, you will have only minified files\n\t$ gulp build --dev\n\n\n## NPM Package\n\n[www.npmjs.com/package/dropify](https://www.npmjs.com/package/dropify)\n\n    $ npm install dropify\n\n## Bower Package\n\n    $ bower install dropify\n\n\n## Usage\n\nYou have to include __[dist/js/dropify.js](dist/js/dropify.js)__, __[dist/css/dropify.css](dist/css/dropify.css)__ and __dist/fonts/*__ to your project, then you just have to init the jQuery plugin like that :\n\n```javascript\n$('.dropify').dropify();\n```\n\n## Options\n\n* __defaultFile:__ If there is a default file on the input. You can use options when you use the plugin or directly __data-default-file=\"url_of_your_file\"__ on you DOM element (it's recommended).\n\n```html\n<input type=\"file\" class=\"dropify\" data-default-file=\"url_of_your_file\" />\n```\n\n\n* __height:__  Set the height of your dropify element. For exemple you want 300px height, you have to add the attribute __data-height=\"300\"__ on your DOM element.\n\n```html\n<input type=\"file\" class=\"dropify\" data-height=\"300\" />\n```\n\n\n* __maxFileSize:__  Set the max filesize of the uploaded document. An error will be display if the file size is bigger than the option. You can use unit like K, M and G.\n\n```html\n<input type=\"file\" class=\"dropify\" data-max-file-size=\"3M\" />\n```\n\n\n* __minWidth:__  Set the min width allowed. An error will be display if the width is smaller than the option.\n\n```html\n<input type=\"file\" class=\"dropify\" data-min-width=\"400\" />\n```\n\n\n* __maxWidth:__  Set the max width allowed. An error will be display if the width is bigger than the option.\n\n```html\n<input type=\"file\" class=\"dropify\" data-max-width=\"1000\" />\n```\n\n\n* __minHeight:__  Set the min height allowed. An error will be display if the height is smaller than the option.\n\n```html\n<input type=\"file\" class=\"dropify\" data-min-height=\"400\" />\n```\n\n\n* __maxHeight:__  Set the max height allowed. An error will be display if the height is bigger than the option.\n\n```html\n<input type=\"file\" class=\"dropify\" data-max-height=\"1000\" />\n```\n\n\n* __disabled:__  You can disable the input if you add the attr __disabled=\"disabled\"__.\n\n```html\n<input type=\"file\" class=\"dropify\" disabled=\"disabled\" />\n```\n\n\n* __showRemove:__  You can hide the remove button if you add the attr __data-show-remove=\"false\"__. Default: true.\n\n```html\n<input type=\"file\" class=\"dropify\" data-show-remove=\"false\" />\n```\n\n\n* __showLoader:__  You can hide the loader if you add the attr __data-show-loader=\"false\"__. Default: true.\n\n```html\n<input type=\"file\" class=\"dropify\" data-show-loader=\"false\" />\n```\n\n\n* __showErrors:__  You can hide errors if you add the attr __data-show-loader=\"false\"__. Default: true.\n\n```html\n<input type=\"file\" class=\"dropify\" data-show-errors=\"true\" />\n```\n\n\n* __errorsPosition:__  You can choose where you want to display the errors, overlay or outside. Default: overlay.\n\n```html\n<input type=\"file\" class=\"dropify\" data-errors-position=\"outside\" />\n```\n\n\n* __allowedFormats:__  You can allow/deny pictures formats. If you add the attr __data-allowed-formats=\"portrait square\"__ only portrait and square picture will be allowed. Default: ['portrait', 'square', 'landscape'].\n\n```html\n<input type=\"file\" class=\"dropify\" data-allowed-formats=\"portrait square\" />\n```\n\n\n* __allowedFileExtensions:__  You can allow only some file extensions. If you add the attr __data-allowed-file-extensions=\"pdf png psd\"__ only PDF, PNG and PSD files will be allowed. By default, everything is allowed. Default: ['*'].\n\n```html\n<input type=\"file\" class=\"dropify\" data-allowed-file-extensions=\"pdf png psd\" />\n```\n\n\n* __maxFileSizePreview:__  Set the max filesize of the previewed document (if it's an image). If the file size is bigger than the option, it will be only the file icon and disabled the preview. You can use unit like K, M and G.\n\n```html\n<input type=\"file\" class=\"dropify\" data-max-file-size-preview=\"3M\" />\n```\n\n\n* __messages:__  You can translate default messages. You just have to add an options array when you init the plugin. This messages will be replaced in the __tpl__ option.\n\n```javascript\n$('.dropify').dropify({\n    messages: {\n        'default': 'Drag and drop a file here or click',\n        'replace': 'Drag and drop or click to replace',\n        'remove':  'Remove',\n        'error':   'Ooops, something wrong happended.'\n    }\n});\n```\n\n\n* __error:__  You can translate default errors messages. You just have to add an options array when you init the plugin. __{{ value }}__ text will be replaced by the option.\n\n```javascript\n$('.dropify').dropify({\n    error: {\n        'fileSize': 'The file size is too big ({{ value }} max).',\n        'minWidth': 'The image width is too small ({{ value }}}px min).',\n        'maxWidth': 'The image width is too big ({{ value }}}px max).',\n        'minHeight': 'The image height is too small ({{ value }}}px min).',\n        'maxHeight': 'The image height is too big ({{ value }}px max).',\n        'imageFormat': 'The image format is not allowed ({{ value }} only).'\n    }\n});\n```\n\n\n* __tpl:__  You can update default template. You just have to add an options array when you init the plugin.\n\n```javascript\n$('.dropify').dropify({\n    tpl: {\n        wrap:            '<div class=\"dropify-wrapper\"></div>',\n        loader:          '<div class=\"dropify-loader\"></div>',\n        message:         '<div class=\"dropify-message\"><span class=\"file-icon\" /> <p>{{ default }}</p></div>',\n        preview:         '<div class=\"dropify-preview\"><span class=\"dropify-render\"></span><div class=\"dropify-infos\"><div class=\"dropify-infos-inner\"><p class=\"dropify-infos-message\">{{ replace }}</p></div></div></div>',\n        filename:        '<p class=\"dropify-filename\"><span class=\"file-icon\"></span> <span class=\"dropify-filename-inner\"></span></p>',\n        clearButton:     '<button type=\"button\" class=\"dropify-clear\">{{ remove }}</button>',\n        errorLine:       '<p class=\"dropify-error\">{{ error }}</p>',\n        errorsContainer: '<div class=\"dropify-errors-container\"><ul></ul></div>'\n    }\n});\n```\n\n\n## Events\n\n* __dropify.beforeClear:__  This event is called when you click on the \"remove\" button, just before clearing the Dropify. You can access to all the Dropify object properties using __element.xxxx__. See how to use it.\n\n```javascript\nvar drEvent = $('.dropify').dropify();\n\ndrEvent.on('dropify.beforeClear', function(event, element){\n    return confirm(\"Do you really want to delete \\\"\" + element.filename + \"\\\" ?\");\n});\n```\n\n* __dropify.afterClear:__  This event is called after the Dropify is clear. You can access to all the Dropify object properties using __element.xxxx__. See how to use it.\n\n```javascript\nvar drEvent = $('.dropify').dropify();\n\ndrEvent.on('dropify.afterClear', function(event, element){\n    alert('File deleted');\n});\n```\n\n* __dropify.errors:__  This event is called when there is one or more error during process. See how to use it.\n\n```javascript\nvar drEvent = $('.dropify').dropify();\n\ndrEvent.on('dropify.errors', function(event, element){\n    alert('Has Errors!');\n});\n```\n\n* __dropify.error.xxxxx:__  In addition to the event __dropify.errors:__, you can bind errors events one by one. See how to use it.\n\n```javascript\nvar drEvent = $('.dropify').dropify();\n\ndrEvent.on('dropify.error.fileSize', function(event, element){\n    alert('Filesize error message!');\n});\ndrEvent.on('dropify.error.minWidth', function(event, element){\n    alert('Min width error message!');\n});\ndrEvent.on('dropify.error.maxWidth', function(event, element){\n    alert('Max width error message!');\n});\ndrEvent.on('dropify.error.minHeight', function(event, element){\n    alert('Min height error message!');\n});\ndrEvent.on('dropify.error.maxHeight', function(event, element){\n    alert('Max height error message!');\n});\ndrEvent.on('dropify.error.imageFormat', function(event, element){\n    alert('Image format error message!');\n});\n```\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/dropify/-/dropify-0.2.2.tgz#554ebd1da7b6dc2037855fad737dd83128f3f556",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/dropify/-/dropify-0.2.2.tgz",
+    "hash": "554ebd1da7b6dc2037855fad737dd83128f3f556",
+    "registry": "npm"
+  },
+  "registry": "npm",
+  "hash": "554ebd1da7b6dc2037855fad737dd83128f3f556"
+}
