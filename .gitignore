@@ -31,7 +31,3 @@
 
 .DS_Store
 
-.bash_history
-
-.cache/*
-.yarnrc
